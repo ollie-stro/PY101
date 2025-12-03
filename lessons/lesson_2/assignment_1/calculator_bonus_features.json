@@ -1,0 +1,18 @@
+{
+    "language":{
+
+        "en":{
+            "welcome": "Welcome to Calculator!",
+            "invalid_num_error": "That doesn't seem like a valid number! Try again.",
+            "another_calc": "Would you like to perform another calculation? (Y/N)",
+            "thank_you": "Thank you for using Calculator!"
+        },
+
+        "jp":{
+            "welcome": "ようこそに電卓です！",
+            "invalid_num_error": "正しい晩がありませんね、も一回",
+            "another_calc": "もう一度計算を実行しますか？ (Y/N)",
+            "thank_you": "電卓を使っている、ありがとうございます！"
+        }
+    }
+}
