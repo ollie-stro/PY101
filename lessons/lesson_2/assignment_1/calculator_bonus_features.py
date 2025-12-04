@@ -17,7 +17,7 @@ def prompt(message):
 
 def invalid_number(number_str):
     try:
-        int(number_str)
+        float(number_str)
     except ValueError:
         return True
 
@@ -40,60 +40,63 @@ def choose_lang():
         else:
             prompt('Please select either 1 or 2!')
             prompt('１か２を選んでください！')
-    print(language)
 
 def calculator():
 
-    prompt(data["language"][language]["welcome"])  #############
+    prompt(data["language"][language]["welcome"])
 
-    prompt("What's the first number? ")
+    prompt(data["language"][language]["valid_num"])
     number1 = input()
 
     while invalid_number(number1):
-        prompt(data["language"][language]["invalid_num_error"]) #############
+        prompt(data["language"][language]["invalid_num_error"])
         number1 = input()
 
-    prompt("What's the second number? ")
+    prompt(data["language"][language]["valid_num_2"])
     number2 = input()
 
     while invalid_number(number2):
-        prompt(data["language"][language]["invalid_num_error"]) ############
+        prompt(data["language"][language]["invalid_num_error"])
         number2 = input()
 
-    prompt("""What operation would you like to peform?
-1) Add\n2) Subtract\n3) Multiply\n4) Divide\n""")
+    prompt(data["language"][language]["operation_choice"])
     operation = input()
 
     while operation not in ["1", "2", "3", "4"]:
-        prompt('You must choose 1, 2, 3, or 4')
+        prompt(data["language"][language]["invalid_operation"])
         operation = input()
 
 
     match operation:
         case '1':
-            output = int(number1) + int(number2)
-            prompt(f'The result of {number1} + {number2} is: {output}')
+            output = float(number1) + float(number2)
+            prompt(f'{number1} + {number2} is: {output:.2f}')
         case '2':
-            output = int(number1) - int(number2)
-            prompt(f'The result of {number1} - {number2} is: {output}')
+            output = float(number1) - float(number2)
+            prompt(f'{number1} - {number2} is: {output:.2f}')
         case '3':
-            output = int(number1) * int(number2)
-            prompt(f'The result of {number1} * {number2} is: {output}')
+            output = float(number1) * float(number2)
+            prompt(f'{number1} * {number2} is: {output:.2f}')
         case '4':
-            output = int(number1) / int(number2)
-            prompt(f'The result of {number1} / {number2} is: {output}')
+            output = float(number1) / float(number2)
+            prompt(f'{number1} / {number2} is: {output:.2f}')
 
-    prompt(data["language"][language]["another_calc"])                            ##############
-
+    prompt(data["language"][language]["another_calc"])
+    prompt(data["language"][language]["lang_pref"])
     while True:
         another_calc = input().upper()
         if another_calc == ('Y'):
-            calculator()                                                # Nested calculator function call - NEEDS FIXING
+            calculator()
+            break                                                # Nested calculator function call - NEEDS FIXING
         elif another_calc == ('N'):
-            prompt(data["language"][language]["thank_you"])                     ##################
+            prompt(data["language"][language]["thank_you"])
             break
+        elif another_calc == ('L'):
+            choose_lang()
+            prompt(data["language"][language]["another_calc"])
+            prompt(data["language"][language]["lang_pref"])
         else:
-            prompt('Please enter a valid input! (Y/N)')
+            prompt(data["language"][language]["valid_input_error"])
 
 # START
 

@@ -2,16 +2,28 @@
     "language":{
 
         "en":{
+            "lang_pref":"To change languages, please press 'L'",
             "welcome": "Welcome to Calculator!",
+            "valid_num": "What's the first number?",
+            "valid_num_2":"What's the second number?",
+            "operation_choice":"What operation would you like to peform?\n1) Add\n2) Subtract\n3) Multiply\n4) Divide\n",
+            "invalid_operation": "You must choose 1, 2, 3, or 4",
             "invalid_num_error": "That doesn't seem like a valid number! Try again.",
             "another_calc": "Would you like to perform another calculation? (Y/N)",
+            "valid_input_error": "Please enter a valid input! (Y/N)",
             "thank_you": "Thank you for using Calculator!"
         },
 
         "jp":{
+            "lang_pref":"言語を変更するには、「L」を押してください",
             "welcome": "ようこそに電卓です！",
+            "valid_num": "一番は何ですか",
+            "valid_num_2":"二番は何ですか?",
+            "operation_choice":"どのような演算を実行しますか？\n1) 加算\n2) 減算\n3) 乗算\n4) 除算\n",
+            "invalid_operation": "1、2、3、または4を選択してください",
             "invalid_num_error": "正しい晩がありませんね、も一回",
             "another_calc": "もう一度計算を実行しますか？ (Y/N)",
+            "valid_input_error": "有効な入力をしてください! (Y/N)",
             "thank_you": "電卓を使っている、ありがとうございます！"
         }
     }
