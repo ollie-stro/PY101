@@ -87,7 +87,7 @@ def calculator():
         another_calc = input().upper()
         if another_calc == ('Y'):
             calculator()
-            break                                                # Nested calculator function call - NEEDS FIXING
+            break
         elif another_calc == ('N'):
             prompt(data["language"][language]["thank_you"])
             break
