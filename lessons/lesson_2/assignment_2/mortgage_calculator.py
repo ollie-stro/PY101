@@ -12,9 +12,31 @@ def prompt(message):
 
 
 def get():
-    user_input = input('> ')
+    user_input = input('> ' )
     print('')
     return user_input
+
+def invalid_float(number_str):
+    try:
+        float(number_str)
+        if number_str == '0':
+            prompt(data["invalid_num_error_0"])
+            return True
+    except ValueError:
+        return True
+
+    return False
+
+
+def prompt_for_number(key):
+    prompt(data[key])
+    number = get().strip()
+
+    while invalid_float(number):
+        prompt(data["invalid_num_error"])
+        number = get().strip()
+
+    return float(number)
 
 
 def mortgage_calculator():
@@ -23,26 +45,21 @@ def mortgage_calculator():
     prompt(data["description"])
 
 
-    prompt(data["loan_amount"])
-    loan_amount = float(get())
+    loan_amount = prompt_for_number("loan_amount")
+    annual_percentage_rate = prompt_for_number("annual_percentage_rate")
+    loan_duration = prompt_for_number("loan_duration")
 
-    prompt(data["annual_percentage_rate"])
-    annual_percentage_rate = float(get())
-
-    prompt(data["loan_duration"])
-    loan_duration = float(get())
 
     interest_rate_monthly = annual_percentage_rate / 100 / 12
-
-    monthly_payment = loan_amount * (interest_rate_monthly / 
-                                (1 - (1 + interest_rate_monthly) ** 
+    month_pay = loan_amount * (interest_rate_monthly /
+                                (1 - (1 + interest_rate_monthly) **
                                 (-loan_duration)))
-    
-    yearly_payment = monthly_payment * 12
-    total_payment = yearly_payment * (loan_duration / 12)
+    year_pay = month_pay * 12
+    total_payment = year_pay * (loan_duration / 12)
+
 
     print(data["separator"])
-    prompt(f'{data["monthly_yearly_payment"]}{monthly_payment:.2f}, that is £{yearly_payment:.2f} per year!')
+    prompt(f'{data["monthly_yearly_payment"]}{month_pay:.2f}, that is £{year_pay:.2f} per year!')
     prompt(f'{data["total_payment"]}{total_payment:.2f}')
     print(data["separator"])
     prompt(data["thank_you"])

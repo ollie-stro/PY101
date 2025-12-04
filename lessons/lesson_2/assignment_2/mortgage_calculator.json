@@ -4,6 +4,8 @@
     "loan_amount": "What was your total loan amount? ",
     "annual_percentage_rate":"What is your annual percentage rate? (APR) ",
     "loan_duration":"What is your loan duration in months? ",
+    "invalid_num_error": "Please enter a valid number: ",
+    "invalid_num_error_0": "You cannot enter 0!",
     "separator": "\n-------------------------------------------------------------------------\n",
     "monthly_yearly_payment":"Your monthly payment comes out to: £",
     "total_payment":"Your total payment is £",
