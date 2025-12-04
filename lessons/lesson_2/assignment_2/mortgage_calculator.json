@@ -1,0 +1,11 @@
+{
+    "welcome": "Welcome to The Mortgage Calculator!\n",
+    "description": "Here you can enter your details and we will calculate your:\n - Monthly payments\n - Yearly payments\n - Total payments\n",
+    "loan_amount": "What was your total loan amount? ",
+    "annual_percentage_rate":"What is your annual percentage rate? (APR) ",
+    "loan_duration":"What is your loan duration in months? ",
+    "separator": "\n-------------------------------------------------------------------------\n",
+    "monthly_yearly_payment":"Your monthly payment comes out to: £",
+    "total_payment":"Your total payment is £",
+    "thank_you": "Thank you for using The Mortgage Calculator!"
+}

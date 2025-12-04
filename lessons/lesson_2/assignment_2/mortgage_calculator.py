@@ -1,3 +1,9 @@
+#MODULES
+
+import json
+
+with open("mortgage_calculator.json", "r") as configfile:
+    data = json.load(configfile)
 
 # FUNCTIONS
 
@@ -5,18 +11,28 @@ def prompt(message):
     print(f'==> {message}')
 
 
+def get():
+    user_input = input('> ')
+    print('')
+    return user_input
+
+
 def mortgage_calculator():
 
-    prompt('What was your total loan amount? ')
-    loan_amount = float(input())
+    prompt(data["welcome"])
+    prompt(data["description"])
 
-    prompt('What is your annual percentage rate? (APR) ')
-    annual_perctage_rate = float(input())
 
-    prompt('What is your loan duration in months? ')
-    loan_duration = float(input())
+    prompt(data["loan_amount"])
+    loan_amount = float(get())
 
-    interest_rate_monthly = annual_perctage_rate / 100 / 12
+    prompt(data["annual_percentage_rate"])
+    annual_percentage_rate = float(get())
+
+    prompt(data["loan_duration"])
+    loan_duration = float(get())
+
+    interest_rate_monthly = annual_percentage_rate / 100 / 12
 
     monthly_payment = loan_amount * (interest_rate_monthly / 
                                 (1 - (1 + interest_rate_monthly) ** 
@@ -25,8 +41,11 @@ def mortgage_calculator():
     yearly_payment = monthly_payment * 12
     total_payment = yearly_payment * (loan_duration / 12)
 
-    prompt(f'Your monthly payment comes out to: {monthly_payment:.2f}, that is {yearly_payment:.2f} per year!')
-    prompt(f'Your total payment is {total_payment:.2f}')
+    print(data["separator"])
+    prompt(f'{data["monthly_yearly_payment"]}{monthly_payment:.2f}, that is £{yearly_payment:.2f} per year!')
+    prompt(f'{data["total_payment"]}{total_payment:.2f}')
+    print(data["separator"])
+    prompt(data["thank_you"])
 
 
 # START
