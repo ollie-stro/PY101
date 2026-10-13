@@ -111,10 +111,10 @@ def rock_paper_scissors():
 
         display_options()
 
-        choice = input()
+        choice = input().lower().strip()
         while choice not in (VALID_CHOICES) and choice not in (VALID_ABBREVIATIONS):
             prompt("That's not a valid choice! Try again")
-            choice = input()
+            choice = input().lower().strip()
 
         computer_choice = random.choice(VALID_CHOICES)
 
